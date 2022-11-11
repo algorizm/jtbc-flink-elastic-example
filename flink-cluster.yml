@@ -1,0 +1,70 @@
+version: "3"
+services:
+  jobmanager:
+    image: jnd/pyflink:latest
+    ports:
+      - "8081:8081"
+      - "6123:6123"
+    command: jobmanager
+    networks:
+      - flink-session
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+      - PYFLINK_CLIENT_EXECUTABLE=/usr/local/bin/python
+
+  taskmanager1:
+    image: jnd/pyflink:latest
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    networks:
+      - flink-session
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 3
+      - PYFLINK_CLIENT_EXECUTABLE=/usr/local/bin/python
+  taskmanager2:
+    image: jnd/pyflink:latest
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    networks:
+      - flink-session
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 3
+      - PYFLINK_CLIENT_EXECUTABLE=/usr/local/bin/python
+  taskmanager3:
+    image: jnd/pyflink:latest
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    networks:
+      - flink-session
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 3
+      - PYFLINK_CLIENT_EXECUTABLE=/usr/local/bin/python
+  sql-client:
+    image: jnd/pyflink:latest
+    command: bin/sql-client.sh
+    networks:
+      - flink-session
+    depends_on:
+      - jobmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager      
+
+networks:
+  flink-session:
+    external: true
