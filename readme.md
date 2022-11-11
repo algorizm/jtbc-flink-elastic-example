@@ -1,3 +1,5 @@
+## Flink(docker)
+
 #### 00. Basic flink-table
 - handel table, columns, select, groupyby, schema, explain 
 
@@ -27,7 +29,7 @@
 - 엘라, hdfs, 파일로 변환 예제 
 - 엘라에 있는거 읽어와서 파일, hdfs, 등으로 가져오는 예제
 
-## 8. CDC from Source(SQL-Server) to Sink(Elastic)
+#### 8. CDC from Source(SQL-Server) to Sink(Elastic)
 ### 08_from_sqlserver_to_es.py
 filesystem, hdfs, kafka 등으로 보낼수 있음
 https://ververica.github.io/flink-cdc-connectors/master/content/quickstart/sqlserver-tutorial.html
@@ -81,11 +83,11 @@ update news_basic set ARTICLE_TITLE = '테스트 12345'
 where NEWS_ID = 'NB12007613'
 ```
 
-# https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/dev/python/table/intro_to_table_api/
+#### https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/dev/python/table/intro_to_table_api/
 메모리 상에서 Source(datagen)를 생성 하고 Sink(print) 넣고 벌크 데이터 저장
 
-# flink run, cluster 실행 방법등
+#### flink run, cluster 실행 방법등
 https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/deployment/cli/#submitting-pyflink-jobs
 
-# 정책, at least once, Exactly once
+#### 정책, at least once, Exactly once
 https://nightlies.apache.org/flink/flink-docs-master/docs/dev/python/table/table_environment/
