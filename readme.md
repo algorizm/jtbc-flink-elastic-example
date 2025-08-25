@@ -1,3 +1,24 @@
+# JTBC Flink + Elasticsearch Ingestion (Docker Swarm)
+
+## Overview
+- Example & PoC code from JTBC project
+- Demonstrated how to use **Flink Table API** to process logs and ingest them into **Elasticsearch**
+- Deployed on **Docker Swarm** cluster as part of early real-time analytics experiments
+
+## Features
+- Flink Table API examples
+- Data ingestion pipeline to Elasticsearch
+- Deployment configs for Docker Swarm
+
+## My Contribution
+- Set up Docker Swarm environment for running Flink jobs
+- Implemented ingestion pipeline from Flink Table API → Elasticsearch
+- Operated prototype as part of JTBC log analytics project
+
+## Notes
+- This repo contains **example code only**, not the full JTBC data platform
+- Other components at the time (Kafka, Superset, etc.) are not included here
+
 ## Flink(docker)
 
 #### 00. Basic flink-table
